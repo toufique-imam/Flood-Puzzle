@@ -17,4 +17,5 @@
     <string name="flood_fill_param_header">Flood Parameters</string>
     <string name="flood_fill_param">These parameters are available in Game Generation Option.\n\n\t(a)Grid Size ( Square Size of the Grid)[5–20] \n\t(b)Colours (Number of Distinct Colors [2–7]\n\n\t(c)Game Mode\n\t\t1.Single Player\n\t\t2.Dual Player\n\t\t3.Player VS AI\n</string>
     <string name="flood_fill_header">Flood Fill Puzzle | How To</string>
+    <string name="game_mode">Game Mode</string>
 </resources>
