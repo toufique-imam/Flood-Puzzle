@@ -11,7 +11,7 @@ Flood Puzzle Game For Android
 
 ## Install
 
-> No Release , Will add after a stable AI mode added
+> [v1.0.0 Greedy AI](https://github.com/sabertooth9/Flood-Puzzle/releases/download/1.0.0/app-release.apk)
 
 ### Bug
 - Didn't find any
