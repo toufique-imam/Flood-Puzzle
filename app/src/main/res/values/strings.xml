@@ -15,7 +15,7 @@
     <string name="flood_fill_control">\t1.To play Flood, touch in a square.\n\n\t2.The top left corner and everything connected to it will be flood-filled with the colour of the square you clicked.\n\n\t3.Clicking a square the same colour as the top left corner has no effect, and therefore does not count as a move in Single player mode.\n</string>
     <string name="flood_fill_control_header">Controls</string>
     <string name="flood_fill_param_header">Flood Parameters</string>
-    <string name="flood_fill_param">These parameters are available in Game Generation Option.\n\n\t(a)Grid Size ( Square Size of the Grid)[5–20] \n\t(b)Colours (Number of Distinct Colors [2–7]\n\n\t(c)Game Mode\n\t\t1.Single Player\n\t\t2.Dual Player\n\t\t3.Player VS AI\n</string>
+    <string name="flood_fill_param">These parameters are available in Game Generation Option.\n\n\t(a)Grid Size ( Square Size of the Grid)[5–20] \n\n\t(b)Colours (Number of Distinct Colors [2–7]\n\n\t(c)Game Mode\n\t\t1.Single Player\n\t\t2.Dual Player\n\t\t3.Player VS AI\n</string>
     <string name="flood_fill_header">Flood Fill Puzzle | How To</string>
     <string name="game_mode">Game Mode</string>
 </resources>

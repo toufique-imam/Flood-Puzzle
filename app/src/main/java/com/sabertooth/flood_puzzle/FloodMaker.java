@@ -8,6 +8,7 @@ class FloodMaker {
     private int[][] grid;
     private int[][] ai_grid;
     private int[][] visited;
+    private int[][] same;
     private int[] cnt_map;
     private int ai_cnt = 0;
     private int[] dx = {-1, 1, 0, 0};
@@ -22,19 +23,23 @@ class FloodMaker {
         grid = new int[x][y];
         ai_grid = new int[x][y];
         visited = new int[x][y];
+        same = new int[x][y];
         for (int i = 0; i <= color_cnt; i++) cnt_map[i] = 0;
         for (int i = 0; i < x; i++) {
             for (int j = 0; j < y; j++) {
                 grid[i][j] = (int) (Math.random() * distinct_col);
                 visited[i][j] = 0;
+                same[i][j] = 0;
                 cnt_map[grid[i][j]]++;
             }
         }
+        same[0][0] = 1;
     }
 
     private void runDfs(int x, int y, int color, int newColor) {
         cnt_map[grid[x][y]]--;
         visited[x][y] = 1;
+        same[x][y] = 1;
         grid[x][y] = newColor;
         cnt_map[grid[x][y]]++;
         for (int i = 0; i < 4; i++) {
@@ -143,5 +148,11 @@ class FloodMaker {
         if (idx == -1) return idx;
         return idx;
         // runDfs(0,0,grid[0][0],idx);
+    }
+
+
+    int attached(int x) {
+        Pair<Integer, Integer> cor = decode(x);
+        return same[cor.first][cor.second];
     }
 }

@@ -4,8 +4,9 @@
     android:id="@+id/listCellView"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@color/Black"
+    android:padding="1dp"
     android:orientation="horizontal">
-
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/cellbutton"
         android:layout_width="match_parent"

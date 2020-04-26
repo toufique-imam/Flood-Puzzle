@@ -4,11 +4,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="10dp"
+    android:padding="20dp"
     tools:context=".Help_activity">
 
     <androidx.appcompat.widget.AppCompatImageView
-        android:elevation="@dimen/material_emphasis_medium"
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:src="@drawable/web_hi_res_512" />

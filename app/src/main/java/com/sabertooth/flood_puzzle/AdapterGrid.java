@@ -56,7 +56,7 @@ public class AdapterGrid extends RecyclerView.Adapter<AdapterCell> {
         int idx = FM.colorValue(position);
         final int curCellColor = cellColor[idx];
 
-        holder.cx.setBackgroundColor(curCellColor);
+        if (FM.attached(position) == 1) holder.cx.setBackgroundColor(curCellColor);
         holder.button.setBackgroundColor(curCellColor);
         if (!gameover) {
             holder.button.setOnClickListener(new View.OnClickListener() {
