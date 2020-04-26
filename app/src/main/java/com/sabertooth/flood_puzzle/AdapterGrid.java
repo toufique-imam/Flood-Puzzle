@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.AppCompatButton;
@@ -77,7 +78,11 @@ public class AdapterGrid extends RecyclerView.Adapter<AdapterCell> {
                         } else if (gamemode == 2) {
 
                             if (!FM.gameFinished()) {
-                                FM.AI_Move();
+                                int move = FM.AI_Move();
+                                if (move != -1) {
+                                    FM.processMove(move);
+                                }
+                                Toast.makeText(appContext, "AI Used " + move, Toast.LENGTH_LONG).show();
                                 notifyDataSetChanged();
                                 if (FM.gameFinished()) aiwon = true;
                             }

@@ -26,7 +26,6 @@ class FloodMaker {
         for (int i = 0; i < x; i++) {
             for (int j = 0; j < y; j++) {
                 grid[i][j] = (int) (Math.random() * distinct_col);
-                ai_grid[i][j] = grid[i][j];
                 visited[i][j] = 0;
                 cnt_map[grid[i][j]]++;
             }
@@ -48,6 +47,7 @@ class FloodMaker {
     }
 
     void processMove(int color) {
+        if (color < 0) return;
         for (int i = 0; i < row; i++) {
             for (int j = 0; j < col; j++) {
                 visited[i][j] = 0;
@@ -118,15 +118,17 @@ class FloodMaker {
         for (int i = 0; i < distinct_col; i++) {
             if (i == grid[0][0]) continue;
             if (cnt_map[i] == 0) continue;
-            ai_grid = grid.clone();
             ai_cnt = 0;
 
             for (int k = 0; k < row; k++) {
                 for (int j = 0; j < col; j++) {
                     visited[k][j] = 0;
+                    ai_grid[k][j] = grid[k][j];
                 }
             }
+
             greedy_ai_dfs(0, 0, grid[0][0], i);
+            Log.e("GREED", i + " " + ai_cnt);
             if (maxi < ai_cnt) {
                 maxi = ai_cnt;
                 colidx = i;
@@ -135,11 +137,11 @@ class FloodMaker {
         return colidx;
     }
 
-    void AI_Move() {
+    int AI_Move() {
         int idx = greedy_AI_move();
         Log.e("AI MOVE", idx + "");
-        if (idx == -1) return;
-        processMove(idx);
+        if (idx == -1) return idx;
+        return idx;
         // runDfs(0,0,grid[0][0],idx);
     }
 }
