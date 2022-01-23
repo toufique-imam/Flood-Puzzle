@@ -1,8 +1,9 @@
 package com.sabertooth.flood_puzzle;
 
 
+import static com.sabertooth.flood_puzzle.MainActivity.cellColor;
+
 import android.content.Context;
-import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,13 +27,12 @@ class AdapterCell extends RecyclerView.ViewHolder {
 }
 
 public class AdapterGrid extends RecyclerView.Adapter<AdapterCell> {
-    private Context appContext;
-    private FloodMaker FM;
-    private int[] cellColor = {Color.BLUE, Color.DKGRAY, Color.YELLOW, Color.RED, Color.GREEN, Color.CYAN, Color.MAGENTA, Color.WHITE};
-    private TextView result;
+    private final Context appContext;
+    private final FloodMaker FM;
+    private final TextView result;
     private int count = 0;
     private boolean gameover = false;
-    private int gamemode;
+    private final int gamemode;
 
     AdapterGrid(Context appContext, FloodMaker FM, TextView _res, int gamemode) {
         this.appContext = appContext;
@@ -52,7 +52,7 @@ public class AdapterGrid extends RecyclerView.Adapter<AdapterCell> {
     }
 
     @Override
-    public void onBindViewHolder(@NonNull AdapterCell holder, final int position) {
+    public void onBindViewHolder(@NonNull final AdapterCell holder, int position) {
         int idx = FM.colorValue(position);
         final int curCellColor = cellColor[idx];
 
@@ -63,7 +63,7 @@ public class AdapterGrid extends RecyclerView.Adapter<AdapterCell> {
                 @Override
                 public void onClick(View v) {
                     int maincell = FM.colorValue(0);
-                    int curCell = FM.colorValue(position);
+                    int curCell = FM.colorValue(holder.getAdapterPosition());
                     boolean aiwon = false;
                     if (maincell != curCell) {
                         count++;
@@ -76,9 +76,8 @@ public class AdapterGrid extends RecyclerView.Adapter<AdapterCell> {
                                 result.setText("Player 1 Turn");
                             }
                         } else if (gamemode == 2) {
-
                             if (!FM.gameFinished()) {
-                                int move = FM.AI_Move();
+                                int move = FM.bad_AI_Move();
                                 if (move != -1) {
                                     FM.processMove(move);
                                 }
